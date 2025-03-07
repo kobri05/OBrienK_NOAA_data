@@ -1,3 +1,11 @@
+---
+title: "Lab 4, NOAA Data"
+author: "Katherine OBrien"
+date: "`r Sys.Date()`"
+embed-resources: true
+code-tools: true
+echo: true
+---
 # Part 1: Setup
 
 ## GitHub Workflow
@@ -141,9 +149,15 @@ Now that are data is "analytic ready", go ahead and read in your clean data and 
 
 ```{r}
 #| label: monterey-air-temp-viz
-
-
+buoy_final |>
+  ggplot(mapping = aes(x = mm,
+                       y = atmp)) +
+  geom_jitter(aes(colour = mm), 
+              width = 0.1,
+              alpha = 0.3) +
+  geom_smooth(color = 'black')
 ```
+> I could not for the LIFE of me figure out how to make the points rainbow, so I just stuck with the blue gradient. If it's a color or theme thing let me know because I would LOVE to know how to make it prettier and visually easier to read!
 
 # Part 4: Find a Data Set
 
@@ -158,7 +172,12 @@ One fun source for data is [Tidy Tuesday](https://github.com/rfordatascience/tid
 
 **For your found data write a brief description of the data and and provide its source.**
 
->Insert your description and link to your source here. Identify 2-3 research questions you could try to answer with this data.  
+> https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md#most_visited_nps_species_datacsv
+
+>This dataset looks at information about species in National Parks, with information such as species status, abundance, and whether or not the species is native. I could look at a few different research questions, including
+"Which National Parks have the most invasive species?"
+"Do NPs with more invasive species have more species with 'endangered' conservation statuses?"
+"What is the relationship between observations of a particular species and conservation status?"
 
 
 
